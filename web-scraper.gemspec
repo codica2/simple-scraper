@@ -40,4 +40,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_dependency 'httparty', '~> 0.16.4'
   spec.add_dependency 'nokogiri', '~> 1.6'
+  spec.add_dependency 'parallel', '~> 1.11'
 end
