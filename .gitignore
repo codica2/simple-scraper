@@ -12,3 +12,5 @@
 .byebug_history
 *.gem
 /pkg/*
+.ruby-gemset
+.ruby-version
