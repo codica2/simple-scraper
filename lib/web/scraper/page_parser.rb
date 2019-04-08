@@ -10,8 +10,7 @@ module Web
           attributes.each_with_object({}) do |(key, options), hsh|
             hsh[key] = options[:handler].call(page.xpath(options[:selector]))
           rescue StandardError => error
-            # CustomLogger.for.indeed_parser.debug("For: #{url}, can't find: #{key}, with selector: #{options[:selector]}") if Rails.env.development?
-            p error
+            p error.message
             hsh[key] = options[:default]
           end
         end
