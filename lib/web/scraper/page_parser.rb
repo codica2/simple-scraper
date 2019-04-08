@@ -7,7 +7,15 @@ module Web
         @attributes = attributes || {}
       end
 
-      def parse(url)
+      def parse(urls)
+        Parallel.map(Array(urls), in_threads: Web::Scraper.number_of_threads) { |url| parse_page(url) }.compact
+      end
+
+      private
+
+      attr_reader :attributes
+
+      def parse_page(url)
         PageFinder.find(url: url) do |page|
           attributes.each_with_object({}) do |(key, options), hsh|
             hsh[key] = options[:handler].call(page.xpath(options[:selector]))
@@ -17,10 +25,6 @@ module Web
           end
         end
       end
-
-      private
-
-      attr_reader :attributes
     end
   end
 end
