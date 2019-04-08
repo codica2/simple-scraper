@@ -5,8 +5,8 @@ module Web
     class PageFinder
       def self.find(url:)
         yield(Nokogiri::HTML(HTTParty.get(url)))
-      rescue StandardError => error
-        p error
+      rescue StandardError => e
+        Web::Scraper.logger&.error e
       end
     end
   end

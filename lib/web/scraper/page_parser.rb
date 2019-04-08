@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Web
   module Scraper
     class PageParser
@@ -9,8 +11,8 @@ module Web
         PageFinder.find(url: url) do |page|
           attributes.each_with_object({}) do |(key, options), hsh|
             hsh[key] = options[:handler].call(page.xpath(options[:selector]))
-          rescue StandardError => error
-            p error.message
+          rescue StandardError => e
+            Web::Scraper.logger&.error e
             hsh[key] = options[:default]
           end
         end

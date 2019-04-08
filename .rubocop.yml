@@ -1,0 +1,33 @@
+
+AllCops:
+  TargetRubyVersion: 2.6.1
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 200
+
+Metrics/ClassLength:
+  Max: 350
+
+Metrics/ModuleLength:
+  Max: 350
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 30
+
+Metrics/CyclomaticComplexity:
+  Max: 7
+
+Metrics/BlockLength:
+  Max: 30
