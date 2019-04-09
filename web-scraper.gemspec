@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Codica team']
   spec.email         = ['tikhonenkoigor@gmail.com']
 
-  spec.summary       = 'Simple web scrapper, built on top of nokogiri and httparty gems.'
-  spec.description   = 'Simple web scrapper, built on top of nokogiri and httparty gems.'
+  spec.summary       = 'Library for parsing/scraping web pages.'
+  spec.description   = 'Library was built on top of nokogiri, parallel and httparty gems.'
   spec.homepage      = 'https://github.com/codica2/web-scraper'
   spec.license       = 'MIT'
 
