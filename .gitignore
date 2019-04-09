@@ -14,3 +14,4 @@
 /pkg/*
 .ruby-gemset
 .ruby-version
+/coverage
