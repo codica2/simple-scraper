@@ -30,15 +30,15 @@ Or install it yourself as:
 ```ruby
 require 'web/scraper'
 
-parser = Web::Scraper::PageParser.new(
+scraper = Web::Scraper::PageParser.new(
     title: { selector: "//h1[@class='title']", handler: ->(els) { els.first.text }, default: 'Ruby' },
     summary: { selector: "//h2[@class='summary']", handler: ->(els) { els.first.text } },
     link: { selector: "//a[@class='link']", handler: ->(els) { els.first['href'] } },
     text_array: { selector: "//*[@class='link']", handler: ->(els) { els.map(&:text) } }
 )
 
-result1 = parser.parse('https://www.codica.com/')
-result2 = parser.parse(['https://www.codica.com/1', 'https://www.codica.com/2'])
+result1 = scraper.parse('https://www.codica.com/')
+result2 = scraper.parse(['https://www.codica.com/1', 'https://www.codica.com/2'])
 ```
 The response will be something like:
 ```json
@@ -53,7 +53,7 @@ The response will be something like:
 ]
 ```
 
-### Parser attributes
+### Scraper attributes
 
 - *`title, summary, link, text_array`* - Random hash keys, they may be whatever you want
 - *`selector`* - XPath by which desired elements will be found on the page
@@ -65,7 +65,7 @@ The response will be something like:
 ```ruby
 query = { page: 2 }
 headers = { 'Authorization': 'Bearer' }
-result = parser.parse('https://www.codica.com/', query: query, headers: headers)
+result = scraper.parse('https://www.codica.com/', query: query, headers: headers)
 ```
 
 ### Proxy
@@ -95,7 +95,7 @@ Web::Scraper.configure do |config|
   config.number_of_threads = 20
 end
 ```
-> The example below will work in 20 threads.
+> By default scraper works in 1 thread.
 
 ## License
 web-scraper is Copyright © 2015-2019 Codica. It is released under the [MIT License](https://opensource.org/licenses/MIT).
