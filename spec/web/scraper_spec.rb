@@ -11,6 +11,8 @@ RSpec.describe Web::Scraper do
       c.proxy_pass = ''
     end
 
+    Web::Scraper.reset
+
     parser_object = Web::Scraper::PageParser.new(
       title: { selector: "//*[@class='title']", handler: ->(els) { els.map(&:text) }, default: 'ror' }
     )
