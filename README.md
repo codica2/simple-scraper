@@ -68,6 +68,8 @@ headers = { 'Authorization': 'Bearer' }
 result = scraper.parse('https://www.codica.com/', query: query, headers: headers)
 ```
 
+## Configuration
+
 ### Proxy
 
 ```ruby
@@ -96,6 +98,16 @@ Web::Scraper.configure do |config|
 end
 ```
 > By default scraper works in 1 thread.
+
+### Reset
+
+You might need to reset configuration to defaults
+
+```ruby
+Web::Scraper.reset
+```
+
+> Now you can provided new configuration if needed
 
 ## License
 web-scraper is Copyright © 2015-2019 Codica. It is released under the [MIT License](https://opensource.org/licenses/MIT).
