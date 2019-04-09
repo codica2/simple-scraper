@@ -1,7 +1,7 @@
 module Web
   module Scraper
     class PageFinder
-      def self.find(url:, query:, headers:)
+      def self.find(url:, query: {}, headers: {})
         default_options[:query] = query
         default_options[:headers] = headers
         yield(Nokogiri::HTML(HTTParty.get(url, default_options)))
