@@ -1,4 +1,4 @@
-module Web
+module Simple
   module Scraper
     class Configuration
       attr_accessor :proxy_addr,

@@ -2,12 +2,12 @@ require 'nokogiri'
 require 'httparty'
 require 'parallel'
 
-require 'web/scraper/version'
-require 'web/scraper/configuration'
-require 'web/scraper/page_finder'
-require 'web/scraper/page_parser'
+require 'simple/scraper/version'
+require 'simple/scraper/configuration'
+require 'simple/scraper/finder'
+require 'simple/scraper/parser'
 
-module Web
+module Simple
   module Scraper
     class << self
       attr_writer :configuration, :logger

@@ -1,4 +1,4 @@
-# Web Scraper
+# Simple Scraper
 
 This is a fairly simple gem that will help you simplify the parsing of web pages
 
@@ -14,7 +14,7 @@ Gem is based on several libraries that do most of the work
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'web-scraper'
+gem 'simple-scraper'
 ```
 
 And then execute:
@@ -23,14 +23,14 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install web-scraper
+    $ gem install simple-scraper
 
 ## Usage
 
 ```ruby
-require 'web/scraper'
+require 'simple/scraper'
 
-scraper = Web::Scraper::PageParser.new(
+scraper = Simple::Scraper::Parser.new(
     title: { selector: "//h1[@class='title']", handler: ->(els) { els.first.text }, default: 'Ruby' },
     summary: { selector: "//h2[@class='summary']", handler: ->(els) { els.first.text } },
     link: { selector: "//a[@class='link']", handler: ->(els) { els.first['href'] } },
@@ -51,6 +51,12 @@ The response will be something like:
   },
   ...
 ]
+```
+Or just find a page
+```ruby
+Simple::Scraper::Finder.find(url: 'https://www.codica.com/', query: {}, headers: {}) do |page|
+  # page is an instance of Nokogiri::HTML::Document
+end
 ```
 
 ### Scraper attributes
@@ -73,7 +79,7 @@ result = scraper.parse('https://www.codica.com/', query: query, headers: headers
 ### Proxy
 
 ```ruby
-Web::Scraper.configure do |config|
+Simple::Scraper.configure do |config|
   config.proxy_addr = 'proxy.something.com'
   config.proxy_port = 80
   config.proxy_user = 'user:'
@@ -84,7 +90,7 @@ end
 ### Logging
 
 ```ruby
-Web::Scraper.configure do |config|
+Simple::Scraper.configure do |config|
   config.logger = Logger.new('path/to/my/logs')
 end
 ```
@@ -93,7 +99,7 @@ end
 ### Multithreading
 
 ```ruby
-Web::Scraper.configure do |config|
+Simple::Scraper.configure do |config|
   config.number_of_threads = 20
 end
 ```
@@ -104,18 +110,18 @@ end
 You might need to reset configuration to defaults
 
 ```ruby
-Web::Scraper.reset
+Simple::Scraper.reset
 ```
 
 > Now you can provided new configuration if needed
 
 ## License
-web-scraper is Copyright © 2015-2019 Codica. It is released under the [MIT License](https://opensource.org/licenses/MIT).
+simple-scraper is Copyright © 2015-2019 Codica. It is released under the [MIT License](https://opensource.org/licenses/MIT).
 
 ## About Codica
 
 [![Codica logo](https://www.codica.com/assets/images/logo/logo.svg)](https://www.codica.com)
 
-web-scraper is maintained and funded by Codica. The names and logos for Codica are trademarks of Codica.
+simple-scraper is maintained and funded by Codica. The names and logos for Codica are trademarks of Codica.
 
 We love open source software! See [our other projects](https://github.com/codica2) or [hire us](https://www.codica.com/) to design, develop, and grow your product.
