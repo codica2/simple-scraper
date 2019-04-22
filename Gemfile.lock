@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    web-scraper (0.1.0)
+    simple-scraper (0.1.0)
       httparty (~> 0.16.4)
       nokogiri (~> 1.6)
       parallel (~> 1.11)
@@ -62,9 +62,9 @@ DEPENDENCIES
   bundler (~> 1.17)
   rake (~> 10.0)
   rspec (~> 3.0)
+  simple-scraper!
   simplecov
   vcr
-  web-scraper!
   webmock
 
 BUNDLED WITH

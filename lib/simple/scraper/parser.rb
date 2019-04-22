@@ -1,6 +1,6 @@
-module Web
+module Simple
   module Scraper
-    class PageParser
+    class Parser
       attr_reader :attributes
 
       def initialize(attributes)
@@ -8,12 +8,12 @@ module Web
       end
 
       def parse(urls, query: {}, headers: {})
-        Parallel.map(Array(urls), in_threads: Web::Scraper.configuration.number_of_threads) do |url|
-          PageFinder.find(url: url, query: query, headers: headers) do |page|
+        Parallel.map(Array(urls), in_threads: Simple::Scraper.configuration.number_of_threads) do |url|
+          Finder.find(url: url, query: query, headers: headers) do |page|
             attributes.each_with_object({}) do |(key, options), hsh|
               hsh[key] = options[:handler].call(page.xpath(options[:selector]))
             rescue StandardError => e
-              Web::Scraper.logger&.error e
+              Simple::Scraper.logger&.error e
               hsh[key] = options[:default]
             end
           end

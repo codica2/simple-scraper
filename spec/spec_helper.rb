@@ -1,6 +1,6 @@
 require 'bundler/setup'
 require 'simplecov'
-require 'web/scraper'
+require 'simple/scraper'
 require 'webmock/rspec'
 require 'vcr'
 

@@ -1,26 +1,26 @@
 lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'web/scraper/version'
+require 'simple/scraper/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'web-scraper'
-  spec.version       = Web::Scraper::VERSION
-  spec.authors       = ['Codica team']
+  spec.name          = 'simple-scraper'
+  spec.version       = Simple::Scraper::VERSION
+  spec.authors       = ['Igor Tikhonenko']
   spec.email         = ['tikhonenkoigor@gmail.com']
 
   spec.summary       = 'Library for parsing/scraping web pages.'
   spec.description   = 'Library was built on top of nokogiri, parallel and httparty gems.'
-  spec.homepage      = 'https://github.com/codica2/web-scraper'
+  spec.homepage      = 'https://github.com/codica2/simple-scraper'
   spec.license       = 'MIT'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
   if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = 'https://rubygems.org/gems/web-scraper'
+    spec.metadata['allowed_push_host'] = 'https://rubygems.org/gems/simple-scraper'
 
     spec.metadata['homepage_uri'] = spec.homepage
-    spec.metadata['source_code_uri'] = 'https://github.com/codica2/web-scraper'
-    spec.metadata['changelog_uri'] = 'https://github.com/codica2/web-scraper'
+    spec.metadata['source_code_uri'] = 'https://github.com/codica2/simple-scraper'
+    spec.metadata['changelog_uri'] = 'https://github.com/codica2/simple-scraper'
   else
     raise 'RubyGems 2.0 or newer is required to protect against ' \
       'public gem pushes.'
