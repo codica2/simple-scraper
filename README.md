@@ -1,13 +1,13 @@
 # Simple Scraper
 
-This is a fairly simple gem that will help you simplify the parsing of web pages
+This is a fairly simple gem that will help you simplify the parsing of web pages.
 
 ## How it works
 
-Gem is based on several libraries that do most of the work
-- [HTTParty](https://github.com/jnunemaker/httparty) HTTP client
+Gem is based on several libraries that do most of the work:
+- [HTTParty](https://github.com/jnunemaker/httparty) is an HTTP client
 - [Parallel](https://github.com/grosser/parallel) allows performing queries in multiple threads
-- [Nokogiri](https://github.com/sparklemotion/nokogiri) Nokogiri is an HTML, XML, SAX, and Reader parser
+- [Nokogiri](https://github.com/sparklemotion/nokogiri) is an HTML, XML, SAX, and Reader parser
 
 ## Installation
 
@@ -21,7 +21,7 @@ And then execute:
 
     $ bundle
 
-Or install it yourself as:
+Or install it yourself in the following way:
 
     $ gem install simple-scraper
 
@@ -40,7 +40,7 @@ scraper = Simple::Scraper::Parser.new(
 result1 = scraper.parse('https://www.codica.com/')
 result2 = scraper.parse(['https://www.codica.com/1', 'https://www.codica.com/2'])
 ```
-The response will be something like:
+The response will be similar to:
 ```json
 [
   {
@@ -52,7 +52,7 @@ The response will be something like:
   ...
 ]
 ```
-Or just find a page
+Or just find a page:
 ```ruby
 Simple::Scraper::Finder.find(url: 'https://www.codica.com/', query: {}, headers: {}) do |page|
   # page is an instance of Nokogiri::HTML::Document
@@ -61,10 +61,10 @@ end
 
 ### Scraper attributes
 
-- *`title, summary, link, text_array`* - Random hash keys, they may be whatever you want
-- *`selector`* - XPath by which desired elements will be found on the page
-- *`handler`* - Any ruby object that can respond to `#call` method (`proc`, `lambda` or plain ruby class that has `#call` method defined). One argument will be passed to the handler which is an array of the elements found on the page. Each element is an instance of `Nokogiri::XML::Element`. Please read [Nokogiri](https://github.com/sparklemotion/nokogiri) docs for more info
-- *`default`* - if the scraper cannot find the desired element using `selector`, the value provided for the `default` attribute will be returned.
+- *`title, summary, link, text_array`* - Random hash keys, they may be whatever you want.
+- *`selector`* - XPath. With its help you can find desired elements on the page.
+- *`handler`* - Any ruby object that can respond to `#call` method (`proc`, `lambda` or plain ruby class that has defined `#call` method). One argument will be passed to the handler which is an array of the elements found on the page. Each element is an instance of `Nokogiri::XML::Element`. You can read [Nokogiri](https://github.com/sparklemotion/nokogiri) documentation for more info.
+- *`default`* - In case scraper cannot find the desired element using `selector`, the value provided for the `default` attribute will be returned.
 
 ### Query parameters and headers
 
@@ -113,10 +113,10 @@ You might need to reset configuration to defaults
 Simple::Scraper.reset
 ```
 
-> Now you can provided new configuration if needed
+> Now you can provide new configuration if needed
 
 ## License
-simple-scraper is Copyright © 2015-2019 Codica. It is released under the [MIT License](https://opensource.org/licenses/MIT).
+Copyright © 2015-2019 Codica. It is released under the [MIT License](https://opensource.org/licenses/MIT).
 
 ## About Codica
 
