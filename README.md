@@ -125,3 +125,4 @@ Copyright © 2015-2019 Codica. It is released under the [MIT License](https://op
 simple-scraper is maintained and funded by Codica. The names and logos for Codica are trademarks of Codica.
 
 We love open source software! See [our other projects](https://github.com/codica2) or [hire us](https://www.codica.com/) to design, develop, and grow your product.
+
